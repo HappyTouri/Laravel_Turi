@@ -394,6 +394,7 @@ class OfferController extends Controller
                 "from" => Carbon::parse($request->from),
                 "till" => Carbon::parse($request->till),
                 "number_of_days" => $request->number_of_days,
+                "number_of_people" => $request->number_of_people,
                 "transportation_price" => $request->transportation_price,
                 "tourguide_price" => $request->tourguide_price,
                 "hotels_price" => $request->hotels_price,

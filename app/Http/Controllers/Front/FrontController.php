@@ -419,6 +419,19 @@ class FrontController extends Controller
 
 
 
+    public function landing_page(Request $request)
+    {
+
+
+        $cooperatorSlug = $request->route('cooperator');
+        $cooperator = Cooperator::where('slug', $cooperatorSlug)->first();
+
+
+        return view('website.landingPage', compact(
+            'cooperator',
+        ));
+    }
+
 
 
     public function subscriber_submit(Request $request)

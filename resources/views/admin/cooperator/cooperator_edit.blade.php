@@ -63,6 +63,24 @@
                                                 <div><input type="file"  name="logo"></div>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3"> 
+                                                <label class="form-label">Existing Landing Page</label>
+                                                <div>
+                                                    @if ($cooperator->landing_page != '')
+                                                       <img src="{{asset('uploads/'.$cooperator->landing_page)}}" alt="" class="w_200">
+                                                    @else
+                                                    <img src="{{asset('uploads/default.png')}}" alt="" class="w_200">  
+                                                    @endif
+                                                    
+                                                </div>
+                                            </div>
+        
+                                            <div class="mb-3"> 
+                                                <label class="form-label">Landing Page</label>
+                                                <div><input type="file"  name="landing_page"></div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -71,6 +89,8 @@
                                             <input type="text" class="form-control" name="slug" value="{{$cooperator->slug}}">
                                         </div>
                                     </div>
+
+                                    
                                    
 
                                     <div class="row">

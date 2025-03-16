@@ -89,6 +89,10 @@ Route::group(['prefix' => '{lang}/{cooperator}', 'middleware' => ['lang', 'coope
     //pdf
     Route::get('/name', [PdfController::class, 'invoicePDF'])->name('invoicePDF');
 
+    //landing Page
+    Route::get('/landing-page', [FrontController::class, 'landing_page'])->name('landing_page');
+
+
 });
 
 

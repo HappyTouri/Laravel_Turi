@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminDriverController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminHomeItemController;
+use App\Http\Controllers\Admin\AdminLeadsStatusController;
 use App\Http\Controllers\Admin\AdminOfferController;
 use App\Http\Controllers\Admin\AdminPackageController;
 use App\Http\Controllers\Admin\AdminPackageTitleController;
@@ -460,6 +461,23 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         AdminRoomCategoryController::class,
         'delete'
     ])->name('admin_room_category_delete');
+
+
+    //Leads Status
+    Route::get('/lead-status/index', [AdminLeadsStatusController::class, 'index'])->name('admin_lead_status_index');
+    Route::post('/lead-status/create', [
+        AdminLeadsStatusController::class,
+        'create_submit'
+    ])->name('admin_lead_status_create_submit');
+    Route::get('/lead-status/edit/{id}', [AdminLeadsStatusController::class, 'edit'])->name('admin_lead_status_edit');
+    Route::post('/lead-status/edit/{id}', [
+        AdminLeadsStatusController::class,
+        'edit_submit'
+    ])->name('admin_lead_status_edit_submit');
+    Route::get('/lead-status/delete/{id}', [
+        AdminLeadsStatusController::class,
+        'delete'
+    ])->name('admin_lead_status_delete');
 
     //Accommodation Section
     Route::get('/destination/accommodation/index/{id}', [

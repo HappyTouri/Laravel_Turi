@@ -29,14 +29,32 @@
                                         <div class="col-md-4">
                                             <div class="mb-3"> 
                                                 <label class="form-label">Photo</label>
-                                                <div><input type="file"  name="photo"></div>
+                                                <div>
+                                                    <input type="file"  name="photo">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mb-3"> 
                                                 <label class="form-label">Logo</label>
-                                                <div><input type="file"  name="logo"></div>
+                                                <div>
+                                                    <input type="file"  name="logo">
+                                                </div>
+                                                
+                                            </div>
                                         </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3"> 
+                                                <label class="form-label">Landing Page</label>
+                                                <div>
+                                                    <input type="file"  name="landing_page">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        
                                     </div>
                                     <div class="row">
                                         <div class="mb-3">

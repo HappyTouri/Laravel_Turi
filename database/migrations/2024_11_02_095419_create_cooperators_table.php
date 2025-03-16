@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('photo')->nullable();
             $table->string('logo')->nullable();
+            $table->string('landing_page')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();

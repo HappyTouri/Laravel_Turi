@@ -61,6 +61,9 @@ class AdminCooperatorController extends Controller
         $final_name1 = 'cooperator_logo' . time() . '.' . $request->photo->getClientOriginalExtension();
         $request->logo->move(public_path('uploads'), $final_name1);
 
+        $final_name2 = 'cooperator_landing_page' . time() . '.' . $request->landing_page->getClientOriginalExtension();
+        $request->landing_page->move(public_path('uploads'), $final_name2);
+
         $user = new Cooperator();
         $user->name = $request->name;
         $user->slug = $request->slug;
@@ -82,6 +85,7 @@ class AdminCooperatorController extends Controller
         $user->tourguide_id = $request->tourguide_id || null;
         $user->driver_id = $request->driver_id || null;
         $user->destination_id = $request->destination_id || null;
+        $user->landing_page = $request->final_name2 || null;
 
         $user->save();
 
@@ -153,6 +157,19 @@ class AdminCooperatorController extends Controller
             $cooperator->logo = $final_name1;
         }
 
+        if ($request->hasFile('landing_page')) {
+            $request->validate([
+                'landing_page' => ['mimes:jpg,jpeg,png,gif', 'max:2024'],
+            ]);
+
+            if ($cooperator->landing_page != '') {
+                unlink(public_path('uploads/' . $cooperator->landing_page));
+            }
+            $final_name2 = 'cooperator_landing_page' . time() . '.' . $request->landing_page->getClientOriginalExtension();
+            $request->landing_page->move(public_path('uploads'), $final_name2);
+            $cooperator->landing_page = $final_name2;
+        }
+
         if ($request->password) {
             $request->validate([
                 'password' => ['required', 'min:6'],
@@ -177,6 +194,7 @@ class AdminCooperatorController extends Controller
         $cooperator->tourguide_id = $request->tourguide_id || null;
         $cooperator->driver_id = $request->driver_id || null;
         $cooperator->destination_id = $request->destination_id || null;
+
         $cooperator->save();
 
         return redirect()->back()->with('success', 'cooperator is Updated successfuly!');

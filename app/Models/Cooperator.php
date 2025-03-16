@@ -66,6 +66,10 @@ class Cooperator extends Model
         return $this->hasMany(PrivateTour::class);
     }
 
+    public function leads()
+    {
+        return $this->hasMany(Lead::class, 'cooperator_id');
+    }
 
 
 

@@ -184,6 +184,13 @@
                         </a>
                     </li>
 
+                    {{-- Lead Status --}}
+                    <li class="{{Request::is('admin/lead-status/index')? 'active':''}}">
+                        <a class="nav-link" href="{{route('admin_lead_status_index')}}">
+                            <i class="fas fa-angle-right"></i> Lead Status
+                        </a>
+                    </li>
+
                     {{-- Transportation Types --}}
                     <li class="{{Request::is('admin/transportation-type/*')? 'active':''}}">
                         <a class="nav-link" href="{{route('admin_transportation_types_index')}}">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\DriverOperatorController;
 use App\Http\Controllers\Api\HotelController;
 use App\Http\Controllers\Api\HotelReservationController;
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\OfferController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\TourguideController;
@@ -120,6 +121,20 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Tourguide Reservation
     Route::get('/tourguide-reservations', action: [TourguideController::class, 'get_all_tourguide_reservations']);
+
+    //Leads
+
+    Route::get('/get-all-lead-status', [LeadController::class, 'get_all_lead_status']);
+
+    Route::get('/get-all-cooperators', [LeadController::class, 'get_all_cooperators']);
+
+
+    Route::get('/get-all-leads', [LeadController::class, 'get_all_leads']);
+    Route::get('/get-all-leads-archive', [LeadController::class, 'get_all_leads_archive']);
+    Route::post('/create-lead', [LeadController::class, 'create_lead']);
+    Route::post('/edit-lead/{id}', [LeadController::class, 'edit_lead']);
+    Route::delete('/delete-lead/{id}', [LeadController::class, 'delete_lead']);
+
 });
 
 
